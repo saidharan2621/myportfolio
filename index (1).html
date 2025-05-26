@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenna Venkata Sai Dharan | DevOps Enthusiast | Java & SQL Developer | 
+    Hands-on with Docker, Kubernetes & Terraform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'slide-left': 'slideInFromLeft 0.8s ease-out forwards',
+                        'slide-right': 'slideInFromRight 0.8s ease-out forwards',
+                        'scale': 'scaleIn 0.6s ease-out forwards',
+                        'rotate': 'rotateIn 0.7s ease-out forwards',
+                        'shine': 'shine 1.5s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in-left': 'fadeInLeft 0.8s ease-out forwards',
+                        'fade-in-right': 'fadeInRight 0.8s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideInFromLeft: {
+                            '0%': { transform: 'translateX(-100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        slideInFromRight: {
+                            '0%': { transform: 'translateX(100px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        rotateIn: {
+                            '0%': { transform: 'rotate(-10deg) scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'rotate(0) scale(1)', opacity: '1' }
+                        },
+                        shine: {
+                            '0%': { left: '-100%' },
+                            '100%': { left: '100%' }
+                        },
+                        fadeInUp: {
+                            '0%': { 
+                                opacity: '0',
+                                transform: 'translateY(30px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        },
+                        fadeInLeft: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateX(-30px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateX(0)'
+                            }
+                        },
+                        fadeInRight: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateX(30px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateX(0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        }
+        
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .dark .gradient-text {
+            background-image: linear-gradient(90deg, #60a5fa, #a78bfa);
+        }
+        
+        .dark .project-card {
+            background-color: #1e293b;
+        }
+        
+        .dark .tech-badge {
+            background-color: #334155;
+        }
+        
+        .section-divider {
+            height: 100px;
+            width: 100%;
+            background: linear-gradient(to bottom right, transparent 49%, currentColor 50%), 
+                        linear-gradient(to top right, currentColor 49%, transparent 50%);
+            background-size: 100% 50%;
+            background-repeat: no-repeat;
+            background-position: top, bottom;
+        }
+        
+        .dark .section-divider {
+            color: #1e293b;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 4px solid #93c5fd;
+        }
+        
+        .dark .timeline-item::before {
+            background: #60a5fa;
+            border-color: #1e40af;
+        }
+        
+        .contact-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+        
+        .dark .contact-input {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+        
+        .nav-link.active {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        .dark .nav-link.active {
+            color: #60a5fa;
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+            transition: all 0.6s ease-out;
+            transform: translateY(20px);
+        }
+
+        .scroll-animate.fade-up {
+            transform: translateY(20px);
+        }
+
+        .scroll-animate.fade-left {
+            transform: translateX(-20px);
+        }
+
+        .scroll-animate.fade-right {
+            transform: translateX(20px);
+        }
+
+        .scroll-animate.scale-up {
+            transform: scale(0.95);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-40 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text transition-transform duration-300 hover:scale-110">CVSD</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Home</a>
+                    <a href="#education" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Education</a>
+                    <a href="#expertise" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Expertise</a>
+                    <a href="#projects" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Projects</a>
+                    <a href="#resume" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Resume</a>
+                    <a href="#contact" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="text-gray-700 dark:text-gray-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-white dark:bg-gray-800 z-40 pt-20 px-8">
+        <div class="flex flex-col space-y-6 text-center">
+            <a href="#home" class="nav-link text-xl py-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Home</a>
+            <a href="#education" class="nav-link text-xl py-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Education</a>
+            <a href="#expertise" class="nav-link text-xl py-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Expertise</a>
+            <a href="#projects" class="nav-link text-xl py-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
+            <a href="#resume" class="nav-link text-xl py-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Resume</a
+            <a href="#contact" class="nav-link text-xl py-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left animate-slide-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-scale">Chenna Venkata Sai Dharan</h1>
+                    <h2 class="text-2xl md:text-3xl gradient-text font-semibold mb-6 animate-slide-right">DevOps & Core Java Specialist</h2>
+                    <p class="text-lg mb-8 max-w-lg animate-fade-in">Building scalable, efficient systems with cutting-edge DevOps practices and robust Java solutions. Passionate about automating workflows, optimizing performance, and implementing CI/CD pipelines.</p>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="https://www.linkedin.com/in/venkata-sai-dharan-chenna-a99679237/" target="_blank" 
+                           class="group bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg overflow-hidden relative">
+                            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
+                        </a>
+                        <a href="https://github.com/saidharan2621" target="_blank" 
+                           class="group bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 text-white px-6 py-3 rounded-lg flex items-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg overflow-hidden relative">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative animate-float">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transition-transform duration-300 hover:scale-105">
+                            <img src="diu.1.jpeg" alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-2 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg animate-bounce-slow transition-transform duration-300 hover:rotate-3 hover:scale-105">
+                            <span class="font-bold">DevOps Enthusiast | Java & SQL Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <div class="section-divider text-gray-50 dark:text-gray-900"></div>
+    <section id="education" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 gradient-text scroll-animate fade-up">Education</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg scroll-animate fade-left">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-300 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-1">Bachelor's in Computer Science & Engineering</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-2">Kalasalingam Academy of Research and Education, 2021-2025</p>
+                            <p class="text-gray-700 dark:text-gray-200">Specialized Artificial Intelligence and Machine Learning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <div class="section-divider text-gray-100 dark:text-gray-800"></div>
+    <section id="expertise" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 gradient-text scroll-animate fade-up">Technical Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- DevOps Expertise -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg scroll-animate fade-up" style="transition-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4 transition-transform duration-300 hover:scale-110">
+                            <i class="fas fa-server text-blue-600 dark:text-blue-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">DevOps Engineering</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Specialized in implementing CI/CD pipelines, infrastructure as code, Orchestration and Containerization.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">AWS</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Docker</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Kubernetes</span>
+                    </div>
+                </div>
+                
+                <!-- Java Expertise -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg scroll-animate fade-up" style="transition-delay: 0.4s;">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                            <i class="fab fa-java text-purple-600 dark:text-purple-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Core Java Development</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Profiency in building high-performance, scalable Java applications.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">Lists</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">OOPS</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">JDBC</span>
+                    </div>
+                </div>
+                
+                <!-- Cloud Expertise -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg scroll-animate fade-up" style="transition-delay: 0.6s;">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-cloud text-green-600 dark:text-green-300 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">AWS CLOUD</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Designing and implementing scalable, secure cloud solutions in AWS Cloud.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">EC2</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">EKS</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">VPC</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">LAMDA</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">S3</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-center mb-8 gradient-text scroll-animate fade-up">Technical Skills</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-java text-4xl text-orange-500 mb-2"></i>
+                    <span>Java</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-aws text-4xl text-yellow-600 mb-2"></i>
+                    <span>AWS</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-docker text-4xl text-blue-400 mb-2"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fas fa-cubes text-4xl text-blue-600 mb-2"></i>
+                    <span>Kubernetes</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-jenkins text-4xl text-red-500 mb-2"></i>
+                    <span>Jenkins</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-git-alt text-4xl text-orange-500 mb-2"></i>
+                    <span>Git</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fas fa-code-branch text-4xl text-purple-500 mb-2"></i>
+                    <span>Terraform</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-linux text-4xl text-gray-800 dark:text-gray-200 mb-2"></i>
+                    <span>Linux</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-ubuntu text-4xl text-orange-500 mb-2"></i>
+                    <span>Bash</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <div class="section-divider text-gray-50 dark:text-gray-900"></div>
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 gradient-text scroll-animate fade-up">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg scroll-animate fade-up" style="transition-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-cloud text-white text-6xl transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 transition-colors duration-300 group-hover:text-blue-500">Cloud-Native CI/CD Pipeline</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Automated CI/CD pipeline for containerized Java web application.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs transition-transform duration-300 hover:scale-105">Jenkins</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded text-xs transition-transform duration-300 hover:scale-105">Docker</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg scroll-animate fade-up" style="transition-delay: 0.4s;">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Automated DevOps Pipeline</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">End-to-end CI/CD pipeline with automated testing, security scanning, and deployment to multiple environments.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded text-xs">Jenkins</span>
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 rounded text-xs">Groovy</span>
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">Terraform</span>
+                            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs">Ansible</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Case Study
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg scroll-animate fade-up" style="transition-delay: 0.6s;">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">High-Performance Java Application</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Optimized Java application for financial data processing with multi-threading and caching strategies.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded text-xs">Java 17</span>
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">Spring</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded text-xs">Redis</span>
+                            <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded text-xs">Kafka</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Whitepaper
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg scroll-animate fade-up">
+                    <div class="h-48 bg-gradient-to-r from-yellow-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Infrastructure Security Framework</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive security framework for cloud infrastructure with automated compliance checks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">AWS</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded text-xs">Terraform</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded text-xs">Checkov</span>
+                            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs">OWASP</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Documentation
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg scroll-animate fade-up">
+                    <div class="h-48 bg-gradient-to-r from-indigo-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-network-wired text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Serverless Data Processing</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Event-driven architecture for real-time data processing using AWS Lambda and Step Functions.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs">Lambda</span>
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">S3</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded text-xs">DynamoDB</span>
+                            <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded text-xs">Kinesis</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Architecture
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg scroll-animate fade-up">
+                    <div class="h-48 bg-gradient-to-r from-teal-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-terminal text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Developer Productivity Toolkit</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Collection of scripts and tools to automate common development and deployment tasks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 rounded text-xs">Bash</span>
+                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">Python</span>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded text-xs">Docker</span>
+                            <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded text-xs">Git</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
+                                <i class="fas fa-external-link-alt mr-1"></i> Guide
+                            </a>
+                            <a href="https://github.com/chennadharan/dev-tools" target="_blank" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <div class="section-divider text-gray-50 dark:text-gray-900"></div>
+    <section id="resume" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold gradient-text mb-8 scroll-animate fade-up">Resume</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 scroll-animate fade-up" style="transition-delay: 0.2s;">
+                Click below to view or download my resume.
+            </p>
+            <a href="resume devops.pdf" download 
+               class="group inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl scroll-animate fade-up overflow-hidden relative" 
+               style="transition-delay: 0.4s;">
+                <span class="relative z-10 flex items-center">
+                    <i class="fas fa-download mr-2"></i>
+                    Download Resume
+                </span>
+                <div class="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="section-divider text-gray-100 dark:text-gray-800"></div>
+    <section id="contact" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 gradient-text scroll-animate fade-up">Get In Touch</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="scroll-animate fade-left">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <p class="mb-8">I'm currently open to new opportunities, collaborations, or just a friendly tech discussion. Feel free to reach out!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start scroll-animate fade-left" style="transition-delay: 0.2s;">
+                            <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4 transition-transform duration-300 hover:scale-110">
+                                <i class="fas fa-envelope text-blue-600 dark:text-blue-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <a href="mailto:dharan70365@gmail.com" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">dharan70365@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start scroll-animate fade-left" style="transition-delay: 0.3s;">
+                            <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4 transition-transform duration-300 hover:scale-110">
+                                <i class="fab fa-linkedin-in text-purple-600 dark:text-purple-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/venkata-sai-dharan-chenna-a99679237/" target="_blank" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">linkedin.com/in/venkata-sai-dharan-chenna</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start scroll-animate fade-left" style="transition-delay: 0.4s;">
+                            <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-full mr-4 transition-transform duration-300 hover:scale-110">
+                                <i class="fab fa-github text-gray-600 dark:text-gray-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">GitHub</h4>
+                                <a href="https://github.com/saidharan2621" target="_blank" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">github.com/saidharan2621</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start scroll-animate fade-left" style="transition-delay: 0.5s;">
+                            <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4 transition-transform duration-300 hover:scale-110">
+                                <i class="fas fa-map-marker-alt text-green-600 dark:text-green-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Location</h4>
+                                <p>Hyderabad, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-animate fade-right" style="transition-delay: 0.3s;">
+                    <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                    <form class="space-y-4">
+                        <div class="scroll-animate fade-up" style="transition-delay: 0.4s;">
+                            <label for="name" class="block mb-2 font-medium">Your Name</label>
+                            <input type="text" id="name" 
+                                   class="contact-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 transition-all duration-300 hover:shadow-md focus:shadow-lg">
+                        </div>
+                        
+                        <div class="scroll-animate fade-up" style="transition-delay: 0.5s;">
+                            <label for="email" class="block mb-2 font-medium">Email Address</label>
+                            <input type="email" id="email" 
+                                   class="contact-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 transition-all duration-300 hover:shadow-md focus:shadow-lg">
+                        </div>
+                        
+                        <div class="scroll-animate fade-up" style="transition-delay: 0.6s;">
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" 
+                                   class="contact-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 transition-all duration-300 hover:shadow-md focus:shadow-lg">
+                        </div>
+                        
+                        <div class="scroll-animate fade-up" style="transition-delay: 0.7s;">
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" 
+                                      class="contact-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 transition-all duration-300 hover:shadow-md focus:shadow-lg"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="group w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl scroll-animate fade-up overflow-hidden relative" 
+                                style="transition-delay: 0.8s;">
+                            <span class="relative z-10">Send Message</span>
+                            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold gradient-text">Chenna Venkata Sai Dharan</span>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">DevOps & Core Java Specialist</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/chenna-venkata-sai-dharan" target="_blank" class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/saidharan2621" target="_blank" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="mailto:dharan70365@gmail.com" class="text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-blue-400 dark:text-gray-300 dark:hover:text-blue-300 transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2025 Chenna Venkata Sai Dharan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference or system preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+            
+            // Change icon based on mode
+            const icon = darkModeToggle.querySelector('i');
+            if (html.classList.contains('dark')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the data to a server
+                console.log({ name, email, subject, message });
+                
+                // Show success message
+                alert('Thank you for your message! I will get back to you soon.');
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll-animate class
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+            scrollElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Enhanced hover effects for project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+                card.style.transition = 'all 0.3s ease-out';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth reveal for tech stack icons
+        const techIcons = document.querySelectorAll('.tech-icon');
+        techIcons.forEach((icon, index) => {
+            icon.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
