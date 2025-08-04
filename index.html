@@ -212,6 +212,15 @@
             opacity: 1;
             transform: translate(0) scale(1);
         }
+        
+        .skill-bar {
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+        
+        .skill-bar.animate {
+            width: var(--percentage);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
@@ -227,7 +236,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-xl font-bold gradient-text transition-transform duration-300 hover:scale-110">CVSD</span>
+                    <span class="text-xl font-bold gradient-text transition-transform duration-300 hover:scale-110">Venkata Sai Dharan</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110">Home</a>
@@ -267,7 +276,7 @@
                     <h2 class="text-2xl md:text-3xl gradient-text font-semibold mb-6 animate-slide-right">DevOps & Core Java Specialist</h2>
                     <p class="text-lg mb-8 max-w-lg animate-fade-in">Building scalable, efficient systems with cutting-edge DevOps practices and robust Java solutions. Passionate about automating workflows, optimizing performance, and implementing CI/CD pipelines.</p>
                     <div class="flex space-x-4 justify-center md:justify-start">
-                        <a href="https://www.linkedin.com/in/venkata-sai-dharan-chenna-a99679237/" target="_blank" 
+                        <a href="https://www.linkedin.com/in/chennavenkatasaidharan/" target="_blank" 
                            class="group bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg overflow-hidden relative">
                             <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
                             <div class="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000"></div>
@@ -283,9 +292,6 @@
                     <div class="relative animate-float">
                         <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 transition-transform duration-300 hover:scale-105">
                             <img src="diu.1.jpeg" alt="Profile" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-5 -right-2 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg animate-bounce-slow transition-transform duration-300 hover:rotate-3 hover:scale-105">
-                            <span class="font-bold">DevOps Enthusiast | Java & SQL Developer</span>
                         </div>
                     </div>
                 </div>
@@ -309,32 +315,6 @@
                             <h3 class="text-xl font-bold mb-1">Bachelor's in Computer Science & Engineering</h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-2">Kalasalingam Academy of Research and Education, 2021-2025</p>
                             <p class="text-gray-700 dark:text-gray-200">Specialized Artificial Intelligence and Machine Learning.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Dummy Education 1 -->
-                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg scroll-animate fade-left">
-                    <div class="flex items-start justify-center">
-                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-300 text-xl"></i>
-                        </div>
-                        <div class="text-center">
-                            <h3 class="text-xl font-bold mb-1">Master's in Information Technology</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-2">Dummy University, 2025-2027</p>
-                            <p class="text-gray-700 dark:text-gray-200">Specialized in Cloud Computing and Security.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Dummy Education 2 -->
-                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg scroll-animate fade-left">
-                    <div class="flex items-start justify-center">
-                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                            <i class="fas fa-graduation-cap text-blue-600 dark:text-blue-300 text-xl"></i>
-                        </div>
-                        <div class="text-center">
-                            <h3 class="text-xl font-bold mb-1">Diploma in Software Engineering</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-2">Sample Institute of Technology, 2019-2021</p>
-                            <p class="text-gray-700 dark:text-gray-200">Focused on Full Stack Web Development.</p>
                         </div>
                     </div>
                 </div>
@@ -370,6 +350,7 @@
                         <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Helm</span>
                         <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Prometheus</span>
                         <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Grafana</span>
+                        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Datadog</span>
                         <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">Loki</span>
                         <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md">SonarQube</span>
                     </div>
@@ -411,6 +392,12 @@
                         <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">VPC</span>
                         <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">LAMDA</span>
                         <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">S3</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">RDS</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">IAM</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">CloudFront</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">CloudWatch</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">CloudTrail</span>
+                        <span class="tech-badge px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm">CloudFormation</span>
                     </div>
                 </div>
             </div>
@@ -419,73 +406,136 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-java text-4xl text-orange-500 mb-2"></i>
-                    <span>Java</span>
+                    <span class="text-sm font-medium mb-2">Java</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-orange-500 h-2 rounded-full" data-percentage="90"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-aws text-4xl text-yellow-600 mb-2"></i>
-                    <span>AWS</span>
+                    <span class="text-sm font-medium mb-2">AWS</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-yellow-600 h-2 rounded-full" data-percentage="85"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-docker text-4xl text-blue-400 mb-2"></i>
-                    <span>Docker</span>
+                    <span class="text-sm font-medium mb-2">Docker</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-blue-400 h-2 rounded-full" data-percentage="88"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-cubes text-4xl text-blue-600 mb-2"></i>
-                    <span>Kubernetes</span>
+                    <span class="text-sm font-medium mb-2">Kubernetes</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-blue-600 h-2 rounded-full" data-percentage="82"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-jenkins text-4xl text-red-500 mb-2"></i>
-                    <span>Jenkins</span>
+                    <span class="text-sm font-medium mb-2">Jenkins</span> 
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-red-500 h-2 rounded-full" data-percentage="87"></div>
+                    </div>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fab fa-gitlab text-4xl text-red-500 mb-2"></i>
+                    <span class="text-sm font-medium mb-2">GitLab</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-red-500 h-2 rounded-full" data-percentage="87"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-git-alt text-4xl text-orange-500 mb-2"></i>
-                    <span>Git</span>
+                    <span class="text-sm font-medium mb-2">Git</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-orange-500 h-2 rounded-full" data-percentage="92"></div>
+                    </div>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fas fa-cogs text-4xl text-orange-500 mb-2"></i>
+                    <span class="text-sm font-medium mb-2">Ansible</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-orange-500 h-2 rounded-full" data-percentage="92"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-code-branch text-4xl text-purple-500 mb-2"></i>
-                    <span>Terraform</span>
+                    <span class="text-sm font-medium mb-2">Terraform</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-purple-500 h-2 rounded-full" data-percentage="80"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-linux text-4xl text-gray-800 dark:text-gray-200 mb-2"></i>
-                    <span>Linux</span>
+                    <span class="text-sm font-medium mb-2">Linux</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-gray-800 dark:bg-gray-200 h-2 rounded-full" data-percentage="85"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
-                    <span>SQL</span>
+                    <span class="text-sm font-medium mb-2">SQL</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-blue-400 h-2 rounded-full" data-percentage="88"></div>
+                    </div>
                 </div>
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-ubuntu text-4xl text-orange-500 mb-2"></i>
-                    <span>Bash</span>
+                    <span class="text-sm font-medium mb-2">Bash</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-orange-500 h-2 rounded-full" data-percentage="83"></div>
+                    </div>
                 </div>
-                <!-- Spring -->
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fab fa-java text-4xl text-green-500 mb-2"></i>
-                    <span>Spring</span>
+                    <span class="text-sm font-medium mb-2">Spring</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-green-500 h-2 rounded-full" data-percentage="85"></div>
+                    </div>
                 </div>
-                <!-- Spring Boot -->
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-leaf text-4xl text-green-600 mb-2"></i>
-                    <span>Spring Boot</span>
+                    <span class="text-sm font-medium mb-2">Spring Boot</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-green-600 h-2 rounded-full" data-percentage="87"></div>
+                    </div>
                 </div>
-                <!-- Hibernate -->
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-database text-4xl text-green-800 mb-2"></i>
-                    <span>Hibernate</span>
+                    <span class="text-sm font-medium mb-2">Hibernate</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-green-800 h-2 rounded-full" data-percentage="80"></div>
+                    </div>
                 </div>
-                <!-- PostgreSQL -->
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-database text-4xl text-blue-700 mb-2"></i>
-                    <span>PostgreSQL</span>
+                    <span class="text-sm font-medium mb-2">PostgreSQL</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-blue-700 h-2 rounded-full" data-percentage="82"></div>
+                    </div>
                 </div>
-                <!-- Prometheus -->
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-fire text-4xl text-orange-600 mb-2"></i>
-                    <span>Prometheus</span>
+                    <span class="text-sm font-medium mb-2">Prometheus</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-orange-600 h-2 rounded-full" data-percentage="78"></div>
+                    </div>
                 </div>
-                <!-- Grafana -->
                 <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
                     <i class="fas fa-chart-pie text-4xl text-yellow-500 mb-2"></i>
-                    <span>Grafana</span>
+                    <span class="text-sm font-medium mb-2">Grafana</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-yellow-500 h-2 rounded-full" data-percentage="75"></div>
+                    </div>
+                </div>
+                <div class="tech-icon flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow scroll-animate scale-up">
+                    <i class="fas fa-chart-line text-4xl text-blue-700 mb-2"></i>
+                    <span class="text-sm font-medium mb-2">Datadog</span>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="skill-bar bg-blue-700 h-2 rounded-full" data-percentage="85"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -927,6 +977,29 @@
         const techIcons = document.querySelectorAll('.tech-icon');
         techIcons.forEach((icon, index) => {
             icon.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Skill bar animation
+        const skillBars = document.querySelectorAll('.skill-bar');
+        skillBars.forEach(bar => {
+            const percentage = bar.getAttribute('data-percentage');
+            bar.style.setProperty('--percentage', percentage + '%');
+        });
+
+        // Animate skill bars when they come into view
+        const skillBarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    skillBarObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        skillBars.forEach(bar => {
+            skillBarObserver.observe(bar);
         });
     </script>
 </body>
