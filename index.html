@@ -642,14 +642,7 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">AWS Infra Automation with Terraform, Jenkins, Ansible</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">This project demonstrates a complete CI/CD pipeline for automating AWS infrastructure deployment and configuration.
-                            Launched EC2 instances using Terraform with key-pairs, IAM admin role, and port 8080 access.
-                            Version-controlled Terraform code in GitHub and integrated it with Jenkins pipeline jobs.
-                            Automated instance provisioning (terraform apply) and teardown (terraform destroy) through Jenkins.
-                            Used Ansible dynamic inventory (aws_ec2 plugin) to configure production servers.
-                            Ensured secure communication using PEM files and enabled SSH connections between instances.
-                            Applied system configurations using ansible-playbook with necessary dependencies installed (boto3, pip, etc.).
-                            Implemented Slack alerts for build statuses and pipeline outcomes and splunk for log management.
+                        <p class="text-gray-600 dark:text-gray-300 mb-4"> Built a fully automated CI/CD pipeline to deploy and configure AWS infrastructure. Used Terraform to provision EC2 instances with key-pairs, IAM roles, and security groups. Integrated Jenkins to trigger infrastructure changes via GitHub and deploy configurations using Ansible dynamic inventory and playbooks. Secured SSH access with PEM files and enabled Slack alerts for pipeline notifications. Used Splunk for basic log tracking and visibility.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded text-xs">AWS</span>
